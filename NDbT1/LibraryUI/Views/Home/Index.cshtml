@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LibraryUI.Models.Book>
+
+@{
+    ViewBag.Title = "NService Application";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+
+@Html.ActionLink("Add a Book", "AddBook","Home")
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Copies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnLoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Copies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnLoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Available)
+        </td>
+        <td>
+            @if (item.Available > 0)
+            {
+                @Html.ActionLink("Borrow Copy", "BorrowBook", new { id=item.Id }) 
+            }
+            @Html.ActionLink("Return Copy", "ReturnBook", new { id=item.Id }) 
+        </td>
+    </tr>
+}
+
+</table>
+
+<h3>@TempData["Return"]</h3>
+
