@@ -12,6 +12,5 @@ namespace Messages
     {
         public int BookId { get; set; }
         public DateTime ReturnDate { get; set; }
-        public string Name { get; set; }
     }
 }

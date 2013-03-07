@@ -47,7 +47,7 @@ namespace NSBServer
         /// <param name="book">The book to be added</param>
         /// <returns>The Id of the book added.</returns>
         /// <remarks>
-        /// If the book alread exists, comparison by Title, 
+        /// If the book already exists, comparison by Title, 
         /// then the copies are added to it.
         /// </remarks>
         public int AddBook(Book book)
@@ -129,18 +129,36 @@ namespace NSBServer
 
     public class Book
     {
+        /// <summary>
+        /// The Id of the Book
+        /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// The title of the book
+        /// </summary>
         public string Title { get; set;}
+        /// <summary>
+        /// The Author of the book
+        /// </summary>
         public string Author { get; set; }
+        /// <summary>
+        /// A collection of copies of the book
+        /// </summary>
         public List<Copy> Copies { get; set; }
     }
 
     public class Copy
     {
+        /// <summary>
+        /// Indicates if the copy of the book is 
+        /// available for loan.
+        /// </summary>
         public bool IsAvailable { get; set; }
 
         public Copy()
         {
+            //  Sets the default to TRUE: book is available
+            //  to be loaned
             this.IsAvailable = true;
         }
     }

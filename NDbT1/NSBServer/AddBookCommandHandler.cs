@@ -16,7 +16,7 @@ namespace NSBServer
 
         public void Handle(AddBookCommand message)
         {
-            //  For the minute, write the message to the console
+            //  Write the message to the console to show it has been received.
             Console.WriteLine("=============================================");
             Console.WriteLine("AddBookCommand received");
             Console.WriteLine("\tTitle:\t{0}", message.Title);
@@ -31,19 +31,19 @@ namespace NSBServer
                 Author=message.Author,
                 Copies = new List<Copy>()
             };
-            //  Ad the number of copies specified
+            //  2.  Add the number of copies specified
             for (int i = 1; i <= message.Copies; i++)
             {
                 newBook.Copies.Add(new Copy());
             }
-            //  Add the book to the Fake database
+            //  3.  Add the book to the Fake database
             FakeDb db = FakeDb.GetInstance();
             int newId = db.AddBook(newBook);
 
             //  Raise the BookAddedEvent
             BookAddedEvent e = new BookAddedEvent()
             {
-                BookId = newId,             // the returned Id from the Add to Database method
+                BookId = newId,             // the returned Id
                 Title = message.Title,
                 Author = message.Author,
                 Copies = message.Copies

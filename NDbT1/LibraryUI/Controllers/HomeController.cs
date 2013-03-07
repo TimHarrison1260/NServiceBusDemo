@@ -65,6 +65,17 @@ namespace LibraryUI.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult BorrowBook(int id)
+        {
+            ViewBag.message = "Borrow a Book";
+            return View("NotImplemented");
+        }
+
+        public ActionResult ReturnBook(int id)
+        {
+            ViewBag.message = "Return a Book";
+            return View("NotImplemented");
+        }
 
         public ActionResult About()
         {

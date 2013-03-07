@@ -107,11 +107,30 @@ namespace LibraryUI.Models
 
     public class Book
     {
+        /// <summary>
+        /// The Id of the Book
+        /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// The Title of the book
+        /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// The Author of the book
+        /// </summary>
         public string Author { get; set; }
+        /// <summary>
+        /// The total number of copies of the book, 
+        /// available in the library
+        /// </summary>
         public int Copies { get; set; }
+        /// <summary>
+        /// The total number of copies on loan
+        /// </summary>
         public int OnLoan { get; set; }
+        /// <summary>
+        /// The number of books available to be borrowed
+        /// </summary>
         public int Available { get; set; }
     }
 }

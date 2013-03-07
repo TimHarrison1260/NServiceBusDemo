@@ -13,7 +13,7 @@ namespace LibraryUI.Handlers
     {
         public void Handle(BookAddedEvent message)
         {
-            // add the book contained in the event to the ViewModel
+            // Construct a UI View Model Book from the event details
             Book book = new Book()
             {
                 Id = message.BookId,
@@ -23,11 +23,9 @@ namespace LibraryUI.Handlers
                 OnLoan=0,
                 Available = message.Copies
             };
-
-
+            //  Add the book to the UI View Model.
             LibraryBookModel db = LibraryBookModel.GetInstance();
             db.AddBook(book);
-
         }
     }
 }

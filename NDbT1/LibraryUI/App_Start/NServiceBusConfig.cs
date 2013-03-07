@@ -19,7 +19,7 @@ namespace LibraryUI
                 .UnicastBus()
                     .ImpersonateSender(false)
                 .CreateBus()
-                .Start(() => Configure.Instance.ForInstallationOn<NServiceBus.Installation.Environments.Windows>().Install());
+                .Start();
         }
     }
 }

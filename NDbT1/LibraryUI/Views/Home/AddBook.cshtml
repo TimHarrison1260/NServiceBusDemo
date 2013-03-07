@@ -1,11 +1,21 @@
 ﻿@model LibraryUI.Models.AddBookViewModel
 
 @{
-    ViewBag.Title = "Add Book";
+    ViewBag.Message = "Add Book";
     HtmlHelper.ClientValidationEnabled = true;
 }
 
-<h2>AddBook</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+@*<h2>AddBook</h2>*@
 
 @using (Html.BeginForm()) {
     

@@ -8,7 +8,6 @@ using NServiceBus;
 
 namespace Messages
 {
-    [Serializable]
     public class AddBookCommand : IMessage
     {
         public string Title { get; set; }

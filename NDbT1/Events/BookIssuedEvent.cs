@@ -8,5 +8,7 @@ namespace Events
 {
     class BookIssuedEvent
     {
+        public int BookId { get; set; }
+        public DateTime IssueDate { get; set; }
     }
 }
